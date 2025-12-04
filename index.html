@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>pH Master — Interactive pH Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">pH Master</div>
+
+    <nav>
+      <a href="index.html" class="active">Calculator</a>
+      <a href="theory.html">Theory</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <div class="controls">
+      <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="card calc-card">
+      <h1>Interactive pH Calculator</h1>
+
+      <!-- PRESET SELECTION -->
+      <div class="form-row">
+        <label for="preset">Choose substance (or Manual)</label>
+        <select id="preset" onchange="onPresetChange()">
+          <option value="manual">-- Manual / Custom --</option>
+        </select>
+      </div>
+
+      <!-- TYPE SELECTION -->
+      <div class="form-row">
+        <label for="type">Solution type</label>
+        <select id="type" onchange="renderInputs()">
+          <option value="">-- select --</option>
+          <option value="strong-acid">Strong Acid</option>
+          <option value="weak-acid">Weak Acid</option>
+          <option value="strong-base">Strong Base</option>
+          <option value="weak-base">Weak Base</option>
+        </select>
+      </div>
+
+      <!-- DYNAMIC INPUTS -->
+      <div id="inputs"></div>
+
+      <!-- BUTTON ROW -->
+      <div class="form-row small">
+        <button id="calcBtn" onclick="calculate()">Calculate pH</button>
+        <button id="stepsBtn" onclick="toggleSteps()" class="muted">Show Steps</button>
+      </div>
+
+      <!-- RESULT CARD -->
+      <div id="resultCard" class="result-card hidden">
+
+        <div class="result-row">
+          <div>
+            <h2 id="pHvalue">pH —</h2>
+            <div id="category" class="category">—</div>
+          </div>
+
+          <div class="actions">
+            <button onclick="saveToHistory()">Save</button>
+            <button onclick="exportReport()">Export</button>
+            <button onclick="printReport()">Print</button>
+          </div>
+        </div>
+
+        <!-- PH SCALE -->
+        <div class="ph-scale-wrap">
+          <div class="ph-scale" id="phScale">
+            <div class="scale-marker" id="marker"></div>
+          </div>
+          <div class="scale-labels">
+            <span>0</span><span>7</span><span>14</span>
+          </div>
+        </div>
+
+        <!-- STEPS -->
+        <pre id="steps" class="steps hidden"></pre>
+      </div>
+
+    </section>
+
+    <!-- HISTORY -->
+    <aside class="card history-card">
+      <h3>History</h3>
+      <ul id="historyList" class="history-list"></ul>
+
+      <div class="history-actions">
+        <button onclick="clearHistory()" class="danger">Clear</button>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="footer">
+    <small>Made by: Garv, Akshath, Harsha, Siddharh, Kartikeya — pH Calculator (Project for Experiential Learning)</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theory • pH Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Topbar / Header -->
+  <header class="topbar">
+    <div class="brand">pH Master</div>
+    <nav>
+      <a href="index.html">Calculator</a>
+      <a class="active" href="theory.html">Theory</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="controls">
+      <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h1>Understanding pH Theory</h1>
+
+      <p>
+        The pH of a solution is a measure of how acidic or basic (alkaline) it is.
+        It is based on the concentration of hydrogen ions <strong>[H⁺]</strong> in the solution.
+      </p>
+
+      <h2>📌 What is pH?</h2>
+      <pre class="formula">pH = −log[H⁺]</pre>
+
+      <p>The pH scale ranges from 0 to 14:</p>
+      <ul>
+        <li><strong>0–3:</strong> Strong Acid</li>
+        <li><strong>4–6:</strong> Weak Acid</li>
+        <li><strong>7:</strong> Neutral</li>
+        <li><strong>8–11:</strong> Weak Base</li>
+        <li><strong>12–14:</strong> Strong Base</li>
+      </ul>
+
+      <h2>🧪 Strong Acids</h2>
+      <pre class="formula">[H⁺] = concentration of acid</pre>
+      <ul>
+        <li>HCl</li>
+        <li>HNO₃</li>
+        <li>H₂SO₄ (diprotic)</li>
+      </ul>
+
+      <h2>🧪 Weak Acids</h2>
+      <pre class="formula">[H⁺] = √(Ka × C)</pre>
+      <ul>
+        <li>CH₃COOH (Acetic Acid)</li>
+        <li>H₂CO₃ (Carbonic Acid)</li>
+        <li>HCOOH (Formic Acid)</li>
+      </ul>
+
+      <h2>🧪 Strong Bases</h2>
+      <pre class="formula">[OH⁻] = concentration of base</pre>
+      <pre class="formula">pH = 14 − pOH</pre>
+
+      <h2>🧪 Weak Bases</h2>
+      <pre class="formula">[OH⁻] = √(Kb × C)</pre>
+      <ul>
+        <li>NH₃ (Ammonia)</li>
+        <li>Pyridine</li>
+      </ul>
+
+      <h2>⚖ Diprotic Acids & Bases</h2>
+      <pre class="formula">Effective concentration = 2 × initial concentration</pre>
+      <ul>
+        <li>H₂SO₄ releases 2 H⁺</li>
+        <li>Ca(OH)₂ releases 2 OH⁻</li>
+      </ul>
+
+      <h2>📘 Why pH Matters</h2>
+      <ul>
+        <li>Chemical reactions</li>
+        <li>Biology and metabolism</li>
+        <li>Water quality testing</li>
+        <li>Food processing</li>
+        <li>Environmental science</li>
+      </ul>
+
+      <h2>🎯 Summary</h2>
+      <p>
+        This calculator is designed to help students understand how acids and bases behave,
+        how pH is calculated, and how dissociation constants (Ka/Kb) affect acidity or basicity.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <small>Made by: Garv, Akshath, Harsha, Siddharh, Kartikeya — pH Calculator (Project for Experiential Learning)</small>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
