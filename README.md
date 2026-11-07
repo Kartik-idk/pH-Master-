@@ -2,16 +2,50 @@
 
 [![Live Demo](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://adorable-choux-cf076b.netlify.app/)
 [![Vanilla JS](https://img.shields.io/badge/tech-Vanilla%20JS%20%7C%20HTML5%20%7C%20CSS3-orange.svg)](#technology-stack)
+[![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero%20External-success.svg)]()
 
-An educational chemical computation tool that calculates pH, pOH, and hydronium/hydroxide ion concentrations for acids and bases with step-by-step mathematical derivations and real-time visual scale mapping.
+> An educational chemical computation tool that calculates pH, pOH, and hydronium/hydroxide ion concentrations for acids and bases with step-by-step mathematical derivations and real-time visual scale mapping.
 
-**Live Application:** [https://adorable-choux-cf076b.netlify.app/](https://adorable-choux-cf076b.netlify.app/)
+[**Explore Live Calculator on Netlify**](https://adorable-choux-cf076b.netlify.app/)
+
+---
+
+## Application Interface
+
+![pH Master Interface Preview](assets/ph_master_preview.png)
+
+*Figure: Interactive solution configuration showing selected weak electrolyte, step-by-step mathematical equilibrium derivation, and dynamic 0–14 pH scale marker.*
 
 ---
 
 ## Overview
 
 **pH Master** is a client-side chemistry calculator built to help students and educators explore acid-base equilibrium. It models both strong and weak electrolytes, automates multi-step logarithmic equilibrium calculations, and presents results alongside an interactive visual pH spectrum and persistent calculation logs.
+
+---
+
+## Calculation Workflow & Decision Engine
+
+```mermaid
+flowchart TD
+    A["Select Substance & Enter Concentration (C)"] --> B{"Electrolyte Type"}
+    B -->|Strong Acid| C{"Proton Stoichiometry"}
+    C -->|Monoprotic: HCl, HNO3| D["[H+] = C"]
+    C -->|Diprotic: H2SO4| E["[H+] = 2C"]
+    B -->|Weak Acid: CH3COOH| F["[H+] = sqrt(Ka * C)"]
+    B -->|Strong Base| G{"Hydroxide Stoichiometry"}
+    G -->|Monoprotic: NaOH, KOH| H["[OH-] = C"]
+    G -->|Diprotic: Ca(OH)2| I["[OH-] = 2C"]
+    B -->|Weak Base: NH3| J["[OH-] = sqrt(Kb * C)"]
+    D --> K["pH = -log10([H+])"]
+    E --> K
+    F --> K
+    H --> L["pOH = -log10([OH-]) -> pH = 14 - pOH"]
+    I --> L
+    J --> L
+    K --> M["Visual Spectrum Indicator + Step Derivation + Audit History"]
+    L --> M
+```
 
 ---
 
@@ -75,17 +109,14 @@ Because pH Master is built with vanilla web technologies, no build step or packa
    ```
 
 2. **Open in browser:**
-   - Simply open `index.html` directly in any modern browser:
-     ```bash
-     open index.html # macOS
-     # or
-     xdg-open index.html # Linux
-     ```
-   - Alternatively, serve locally using Python:
-     ```bash
-     python3 -m http.server 8000
-     ```
-     Navigate to `http://localhost:8000`.
+   ```bash
+   open index.html # macOS
+   ```
+   Or serve locally using Python:
+   ```bash
+   python3 -m http.server 8000
+   ```
+   Navigate to `http://localhost:8000`.
 
 ---
 
@@ -99,4 +130,4 @@ Because pH Master is built with vanilla web technologies, no build step or packa
 
 ## License & Permissions
 
-This project is an open source academic and educational tool created by [Kartik-idk](https://github.com/Kartik-idk). Refer to the repository author for usage and licensing inquiries.
+Open source educational software. Feel free to use, modify, and learn from this codebase.
